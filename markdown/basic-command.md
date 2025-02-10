@@ -53,4 +53,4 @@ console.log("hello!")
 - [X] 안한 할일목록(깃헙에서만 체크박스로 표시해줌)
 - [ ] 완료목록
 
-더 많은 예제는 강사님이 슬랙에 올려주심[여기!!](https://docs.github.com/ko/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+더 많은 예제는 강사님이 슬랙에 올려주심[마크다운 매뉴얼-기본 서식 지정 구문](https://docs.github.com/ko/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
