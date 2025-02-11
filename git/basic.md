@@ -10,7 +10,3 @@
     - working dir : 작성하고 있는 코드, 파일
     - staging area : add 명령어로 올라간 파일들
     - .git dir : 서버의 히스토리
-
-# 명령어 정리
-
-## `git init`
