@@ -5,6 +5,14 @@
 
 ## `git clone`
 - 현위치에서 원격저장소(리모트) 폴더를 생성? 연결? 복제! 클론은 복제다
+```
+git clone {url}
+```
+- 단, 클로닝 하는 폴더 내에 같은 파일 이름있으면 안됨
+    - `git push {origin} {master}`
+    - `git pull {origin} {master}`
+    - push로 동기화 업로드
+    - pull로 동기화 다운로드
 
 ## `git status`
 - 상태표시
@@ -38,3 +46,6 @@ add {name} url자리
 ```
 git remote remove {name}
 ```
+
+# 최종정리
+- git clone > 작업 > 저장 > git add/commit/push > pull > 작업 > 저장 > add/commit/push > ...무한반복
