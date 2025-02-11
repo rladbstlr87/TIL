@@ -48,4 +48,4 @@ git remote remove {name}
 ```
 
 # 최종정리
-- git clone > 작업 > 저장 > git add/commit/push > pull > 작업 > 저장 > add/commit/push > ...무한반복
+- git init > git clone > 작업 > 저장 > git add/commit/push > pull > 작업 > 저장 > add/commit/push > 상태보고싶을 때 git status > ...무한반복
