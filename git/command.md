@@ -21,6 +21,20 @@ git add . => 현재 위치를 기준으로 모든 파일과 폴더를 추가
 ## `git commit`
 - 스테이징 에어리어에 있는 변경사항을 커밋하여 히스토리 사진찍음
 
+## `git log`
+- 커밋의 히스토리를 조회
+- 커맨드 커서에 : 있을 때 q 누르면 eval로 나와지는 너낌
+- `--oneline`
+- `--graph`
 
-
-
+## `git remote`
+- 원격 저장소 추가
+- 보통 name은 origin 사용
+- 추가 add
+```
+add {name} url자리
+```
+- 삭제 remove
+```
+git remote remove {name}
+```
