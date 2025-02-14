@@ -6,4 +6,8 @@ TIL(Today I Learned)
 - linux is not yet..
 - markdown
 - git
-- python
+## python
+### 문제은행 정답률 100% 수준의 solution
+- 양꼬치 문재
+- 배열의 평균값
+- 짝수의 합
