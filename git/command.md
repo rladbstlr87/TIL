@@ -46,6 +46,24 @@ add {name} url자리
 ```
 git remote remove {name}
 ```
+## git push/pull
+- 원격 저장소에 커밋을 push(upload), pull(download)
+```
+git push {remote_name (ex)origin} {branch_name (ex)master}
+```
+
+---
+## git branch
+- `git branch` : branch 목록 확인
+- `git branch {branch_name}` : branch 생성
+- `git branch -d {branch_name}` : branch 삭제
+
+## git switch
+- `git checkout {branch_name}` : branch_name으로 이동
+- `git switch {branch_name}` : branch_nanm으로 이동 (최신 명령어)
+
+## git merge
+- `git merge {target_branch_name}` : **현재 branch**로 target_branch_name을 가져와서 병합
 
 # 최종정리
 - git init > git clone > 작업 > 저장 > git add/commit/push > pull > 작업 > 저장 > add/commit/push > 상태보고싶을 때 git status > ...무한반복
