@@ -1,4 +1,5 @@
 # string methods and functions
+
 ## 1. slpit
 ```python
 'str'.split()
@@ -61,6 +62,7 @@ new_poem = " - ".join(lines[:2])  # 'Roses are red - Violets are blue'
 print(new_poem)  # Output: Roses are red - Violets are blue
 ```
 - 활용 : split()과 maxsplit을 활용해 
+
 ---
 ## 2. strip
 ## 3. upper / lower / swapcase
