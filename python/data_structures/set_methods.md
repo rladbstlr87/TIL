@@ -13,7 +13,7 @@
 - 이 메소드는 **인자**로 전달된 다른 집합과 집합계산에 따른 원소들을 반환한다.
 
 ### 기본구조
-```
+```py
 set1.union(set2)
 set1.intersection(set2)
 set1.difference(set2)
