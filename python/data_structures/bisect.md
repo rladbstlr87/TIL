@@ -9,17 +9,15 @@
 ```py
 import bisect
 
-array1 = [149, 180, 192, 170]
-height1 = 167	
-array1.sort()
-array1 # [149, 170, 180, 192]
+array = [149, 180, 192, 170]
+height = 167	
+array.sort()
+array # [149, 170, 180, 192]
 ```
 일때,
 ```py
-bisect.bisect_right(array1, height1)
-# 1
-bisect.bisect_right(array2, height2)
-# 3
+bisect.bisect_right(array, height)
+# 1 : height가 위치하게된 인덱스 번호
 
 index = bisect.bisect_right(array, height)
 len(array) - index
