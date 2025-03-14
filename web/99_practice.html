@@ -4,27 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        .container {
-            width: 220px;
-            height: 310px;
-            perspective: 1000px; /* 추가 */
-        }
-
-        .card {
-            width: 220px;
-            height: 310px;
-            background-image: url(https://i.namu.wiki/i/pc9AO5TWn-7nm29MvXLluiMhIaXWSR3Aoxg0sGsVu5rdMJ1q8BJxNCIRBkmS8j_omuePQiig--MRD9fjoVE6pg.webp);
-            background-size: cover;
-            transition: transform 0.2s; /* 부드러운 회전 효과 */
-            will-change: transform; /* 추가 */
-        }
-    </style>
 </head>
 <body>
     <div class="container">
         <div class="card">
-            <div class="overlay"></div>
+            <!-- 오버레이 클래스를 카드 안에 넣어야함 -->
+            <div class="overlay"></div> 
         </div>
     </div>
 
@@ -34,24 +19,28 @@
         var overlay = document.querySelector('.overlay')
 
         container.addEventListener('mousemove', function(e) {
+            // var x, y로 마우스 좌표 잡아냄
             var x = e.offsetX
             var y = e.offsetY
-            var rotateY = -1/5 * x + 20
-            var rotateX = 4/30 * y - 20
+            // console.log(x, y);
+            var rotateY = -0.2 * x + 24 // -24 ~ 24 각도
+            var rotateX = 0.15 * y - 13 // -13 ~ 13 각도
 
             overlay.style = 'background_position: 20%'
 
-            card.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
+            card.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`; // 해당 축에따라 회전
         });
 
-        container.addEventListener('mouseleave', function() {
-            card.style.transform = 'rotateY(0deg) rotateX(0deg)'; /* 초기화 */
+        container.addEventListener('mouseout', function() {
+            card.style.transform = 'rotateY(0deg) rotateX(0deg)';
+            // 이미지에서 커서가 나가면 원위치
         });
     </script>
 
     <style>
         .container {
             width: 220px; height: 310px; transition: all 0.2s; position: relative;
+            perspective: 1000px;
         }
         .overlay {
             position: absolute;
@@ -72,6 +61,8 @@
             width: 220px; height: 310px;
             background-image: url(https://i.namu.wiki/i/pc9AO5TWn-7nm29MvXLluiMhIaXWSR3Aoxg0sGsVu5rdMJ1q8BJxNCIRBkmS8j_omuePQiig--MRD9fjoVE6pg.webp);
             background-size: cover;
+            transition: transform 0.2s; /* 부드러운 회전 */
+            will-change: transform;
         }
 </style>
 
