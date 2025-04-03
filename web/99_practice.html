@@ -27,9 +27,9 @@
             var rotateY = -0.2 * x + 24 // -24 ~ 24 각도
             var rotateX = 0.15 * y - 13 // -13 ~ 13 각도
 
-            overlay.style = `background-position: ${x/5 + y/5}%`
+            overlay.style = `background-position: ${x/5 + y/5}%` // ''아니고 ``으로하여 python의 f'str'같은 문법
             card.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`; // 해당 축에따라 회전
-        }); // ''아니고 ``으로하여 python의 f'str'같은 문법
+        });
 
         container.addEventListener('mouseout', function() {
             card.style.transform = 'rotateY(0deg) rotateX(0deg)';
