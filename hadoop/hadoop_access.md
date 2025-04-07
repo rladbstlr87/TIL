@@ -25,12 +25,12 @@
 클러스터 환경: 다수의 노드로 구성 (Master-Slave 구조)
 
 기본 포트 예시:
-
+```
+ResourceManager: 8088
 NameNode: 9870
 
 DataNode: 9864
-
-ResourceManager: 8088
+```
 
 ## 장점
 확장성: 노드 추가만으로 저장 용량과 처리 능력 향상 가능
@@ -49,6 +49,10 @@ ResourceManager: 8088
 ```shell
 sbin/start-yarn.sh
 sbin/start-dfs.sh
+```
+## test
+```shell
+hadoop jar $HADOOP_HOME/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.6.jar pi 10 10000
 ```
 ## 종료
 디렉토리 : `~/hadoop-3.3.6`
