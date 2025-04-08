@@ -60,4 +60,3 @@ hadoop jar $HADOOP_HOME/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.6.j
 sbin/stop-yarn.sh
 sbin/stop-dfs.sh
 ```
-Ubuntu는 일정시간 미사용시 종료됨
