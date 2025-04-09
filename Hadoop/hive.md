@@ -59,4 +59,3 @@ LIMIT 10;
 ```sql
 DROP TABLE employees;
 ```
-d
