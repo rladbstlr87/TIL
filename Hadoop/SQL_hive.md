@@ -82,52 +82,63 @@ FROM users;
 # 문제
 ## 1. 데이터의 기초 정보 확인
 ### 1-1. Books 테이블에서 중복된 ISBN 확인
+```sql
 SELECT isbn, COUNT(*)
 FROM books_view
 GROUP BY isbn
 HAVING COUNT(*)>1;
+```
 ### 1-2. Users 테이블에서 Age의 결측값 확인
---INSERT OVERWRITE TABLE users
---SELECT user_id,
---      location,
---      CAST(REGEXP_REPLACE(age, '"', '') AS INT) AS age
---FROM users;
+```sql
 SELECT COUNT(*)
 FROM users_view
 WHERE age IS NULL;
+```
 ## 2. 데이터의 기초 통계 확인
 ### 2-1. 사용자 연령의 기초 통계(최소, 최대, 평균)를 확인
+```sql
 SELECT MIN(age), MAX(age), AVG(age)
 FROM users_view;
+```
 ### 2.2 책의 출판 연도에 대한 기초 통계(최소, 최대, 평균)를 확인
+```sql
 SELECT MIN(year_of_publication), MAX(year_of_publication), AVG(year_of_publication)
 FROM books_view;
+```
 ### 2.3 평점의 분포 확인
+```sql
 SELECT book_rating, COUNT(*)
 FROM ratings_view
 GROUP BY book_rating;
 --WHERE book_rating.user_id IS NOT NULL;
+```
 ## 3. 데이터의 주요 패턴 탐색
 ### 3-1. 출판사별로 얼마나 많은 책이 있는지, 그리고 그 책들의 평균 평점이 어떤지 확인
+```sql
 SELECT bv.publisher, COUNT(bv.book_title), AVG(rv.book_rating)
 FROM books_view bv JOIN ratings_view rv 
 ON bv.isbn = rv.isbn
 GROUP BY bv.publisher
 ORDER BY COUNT(bv.book_title) DESC
 LIMIT 10;
+```
 ### 3.2 가장 많이 평가된 책이 무엇인지 확인
+```sql
 SELECT bv.book_title, COUNT(rv.book_rating), AVG(rv.book_rating)
 FROM books_view bv JOIN ratings_view rv 
 ON bv.isbn = rv.isbn
 GROUP BY bv.book_title
 ORDER BY COUNT(rv.book_rating) DESC
 LIMIT 10;
+```
 ## 4. 데이터 관계 분석
 ### 4.1 책의 출판 연도와 평점 간의 관계를 확인
+```sql
 SELECT bv.year_of_publication, AVG(rv.book_rating)
 FROM books_view bv JOIN ratings_view rv
 ON bv.isbn = rv.isbn
 GROUP BY bv.year_of_publication;
+```
 ### 4.2 사용자 위치별 평점 차이
 --위치(location)에 따라 평균 평점을 출력합니다. 적어도 10개 이상의 평가를 한 경우만 출력
 SELECT uv.location, AVG(rv.book_rating), COUNT(rv.book_rating)
