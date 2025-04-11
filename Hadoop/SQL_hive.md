@@ -141,17 +141,21 @@ GROUP BY bv.year_of_publication;
 ```
 ### 4.2 사용자 위치별 평점 차이
 --위치(location)에 따라 평균 평점을 출력합니다. 적어도 10개 이상의 평가를 한 경우만 출력
+```sql
 SELECT uv.location, AVG(rv.book_rating), COUNT(rv.book_rating)
 FROM users_view uv JOIN ratings_view rv 
 ON uv.user_id = rv.user_id
 GROUP BY uv.location
 HAVING COUNT(rv.user_id)>=10
 ORDER BY AVG(rv.book_rating) DESC;
+```
 ### 4.3 ## 책 저자별 평균 평점
 --각 저자별로 평균 평점이 어떻게 다른지 확인합니다. 적어도 10개 이상의 평가를 한 경우만 출력
+```sql
 SELECT bv.book_author, AVG(rv.book_rating), COUNT(rv.book_rating)
 FROM books_view bv JOIN ratings_view rv 
 ON bv.isbn = rv.isbn
 GROUP BY bv.book_author 
 HAVING COUNT(bv.book_author)>10
 ORDER BY AVG(rv.book_rating) DESC;
+```
