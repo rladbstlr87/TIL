@@ -36,3 +36,6 @@ with open(local_file_path + file_name, mode='w', newline='') as file:
     writer = csv.writer(file)
     writer.writerows(bit_data_list)
 ```
+## 4. cron 자동화
+- `*/5 * * * * /Users/m2/damf2/automation/venv/bin/python /Users/m2/damf2/automation/1.upbit-api/0.upbit-data.py`
+- `*/5 * * * * /Users/m2/damf2/automation/venv/bin/python /Users/m2/damf2/automation/1.upbit-api/1.upload_to_hdfs.py`
