@@ -34,7 +34,7 @@ for i in range(5): # range의 인수를 통해 가져오고 싶은 문제 수를
     # 보기부분
     li_list = soup.select('#main > div > div.col-sm-8.blog-main > div.blog-post.question > ul > li')
     options = [
-        re.sub(r'^(①|②|③|④)', r'\1 ', li.get_text(strip=True)) # 원형 숫자 ①, ②, ③, ④ 중 하나를 찾고 이를 그룹화. 첫 번째 그룹(원형 숫자)을 참조. 그 다음에 나오는 보기의 본문 사이에 띄어쓰기 한 칸.
+        re.sub(r'^(①|②|③|④)', r'\1 ', li.get_text(strip=True)) # 원형 숫자 ①, ②, ③, ④ 그룹화. 첫 번째 그룹(원형 숫자)을 참조하여 그 다음에 나오는 보기의 본문 사이에 띄어쓰기 한 칸.
         for li in li_list
     ]
 
