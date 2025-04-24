@@ -55,3 +55,6 @@ schedule=timedelta(minutes=10) # 실행 주기
 ### For example
 #### ex.1-1
 -  DAG 파일들이 불러와지는 폴더에 함수만 모아놓은 `.py`들을 `from utils.yt_data import *`로 불러와서 태스크 유지보수를 쉽도록 관리할 수 있다
+
+#### ex.1-2
+- TIL의 github관리도 할수있을거같다. TIL 안쓰면 알림도 보내줄 수 있을지는 모르겟다. 하면 되긴 할듯.
