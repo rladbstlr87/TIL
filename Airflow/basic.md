@@ -7,31 +7,51 @@
 
 ### 기본구조
 ```py
+from airflow import DAG
+from datetime import datetime, timedelta
+from airflow.operators.python_operator import PythonOperator
+from utils.yt_data import *
 
+def my_task():
+    target_handle = 'mkbhd'
+    data = get_handle_to_comments(youtube, target_handle)
+    save_to_hdfs(data, '/input/yt-data')
+
+with DAG( # DAG의 정보들 입력구간
+    dag_id='07_yt_data',
+    description='yt data',
+    start_date=datetime(2025, 1, 1),
+    catchup=False,
+    schedule=timedelta(minutes=10)
+) as dag:
+    t1 = PythonOperator(
+        task_id='yt',
+        python_callable=my_task
+    )
+
+    t1 # DAG에 task 여러개 두는 경우 태스크들의 순서에 따라 작동
+    # t1 > t2 이런식으로
 ```
 
-- (Easy definition)
-- (Exact definition)
+#### Python Operator
+- 작성한 파이썬 코드를 Airflow 워크플로우에서 Task로 만들어 실행할 수 있게 해주는 도구
 
-- (parameter1)
-- (parameter2)
+```python
+dag_id='airflow # 웹UI->DAGs에서 DAG 이름으로 뜨는 부분'
+description='yt data' # DAG 설명
+start_date=datetime(2025, 1, 1) # 지정한 날짜부터 작업을 시작하겠다
+catchup=False # DAG을 처음 시작할 때 불필요한 과거 데이터 처리를 건너뛰고, 현재 시점부터 스케줄에 따라 실행되도록 하고 싶을 때 사용
+schedule=timedelta(minutes=10) # 실행 주기
+```
+##### schedule=timedelta()
+- days: 일 수 (정수 또는 부동 소수점)
+- seconds: 초 수 (정수 또는 부동 소수점, 0에서 86399 사이)
+- microseconds: 마이크로초 수 (정수 또는 부동 소수점, 0에서 999999 사이)
+- milliseconds: 밀리초 수 (정수 또는 부동 소수점)
+- minutes: 분 수 (정수 또는 부동 소수점)
+- hours: 시간 수 (정수 또는 부동 소수점)
+- weeks: 주 수 (정수 또는 부동 소수점)
 
 ### For example(이 아래의 ex.1-1~3까지의 예시가 1단계의 예시)
 #### ex.1-1
-```py
-```
-#### ex.1-2
-```py
-```
-#### ex.1-3
-```py
-```
-### What it can do?
-#### ex.level.2(2단계 예시)
-- ('이런것도할수있다' 수준에 대한 예시 부분)
-```py
-```
-#### ex.level.3(3단계 예시)
-- ('심지어 이런것까지 할수있다' 수준에 대한 예시 부분)
-```py
-```
+-  DAG 파일들이 불러와지는 폴더에 함수만 모아놓은 `.py`들을 `from utils.yt_data import *`로 불러와서 태스크 유지보수를 쉽도록 관리할 수 있다
