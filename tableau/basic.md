@@ -34,8 +34,8 @@
 #### 상위/하위
 ORDER BY 의 LIMIT과 같은 개념
 
-### 워크시트
-### [대시보드](https://help.tableau.com/current/guides/get-started-tutorial/ko-kr/get-started-tutorial-build.htm)
+## 워크시트
+## [대시보드](https://help.tableau.com/current/guides/get-started-tutorial/ko-kr/get-started-tutorial-build.htm)
 워크시트를 한번에 모아볼 수 있는 탭
-### [스토리](https://help.tableau.com/current/guides/get-started-tutorial/ko-kr/get-started-tutorial-story.htm)
+## [스토리](https://help.tableau.com/current/guides/get-started-tutorial/ko-kr/get-started-tutorial-story.htm)
 워크시트나 대시보드를 프레젠테이션 할 수 있게 페이지로 만드는 탭
