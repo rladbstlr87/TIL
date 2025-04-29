@@ -37,5 +37,13 @@ ORDER BY 의 LIMIT과 같은 개념
 ## 워크시트
 ## [대시보드](https://help.tableau.com/current/guides/get-started-tutorial/ko-kr/get-started-tutorial-build.htm)
 워크시트를 한번에 모아볼 수 있는 탭
+### 상호작용
+각각의 워크시트를 하나의 대시보드에 모아놓고 하나의 필터로 두개이상의 워크시트를 한 번에 조작할 수 있다.
+1. 필터 우클릭 > 워크시트에 적용 > 선택한 워크시트 > 대시보드의 모든 항목
+2. 동일한 데이터 원본을 사용하는 대시보드의 모든 워크시트에 필터가 한 번에 적용
 ## [스토리](https://help.tableau.com/current/guides/get-started-tutorial/ko-kr/get-started-tutorial-story.htm)
 워크시트나 대시보드를 프레젠테이션 할 수 있게 페이지로 만드는 탭
+### 스토리포인트(Story Point):
+데이터 기반 프레젠테이션의 각 슬라이드를 구성하는 단위. 하나의 시각화(워크시트 또는 대시보드)를 끌어와서 시나리오 흐름에 맞게 나열할 수 있음
+### 캡션
+해당 슬라이드의 핵심 메시지를 전달할 수 있는 기능
