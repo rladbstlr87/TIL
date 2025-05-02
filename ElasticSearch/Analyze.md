@@ -396,5 +396,7 @@ get /article/_analyze
   ]
 }
 ```
-
-```
+### `"user_dictionary_rules":`
+`"user_dictionary":`는 추가되는 단어들을 파일로 관리하며 경로를 입력해주어야 하고 rules는 직접 단어를 한두개 정도 넣을 때 사용한다.
+#### 동의어, 불용어 등
+- elasticsearch-8.18.0/config`/custom` 같은 경로로 관리할 user의 dict, synonym, stop 등의 텍스트 파일을 넣어서 적용시킬 수 있다
