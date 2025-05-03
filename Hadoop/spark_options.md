@@ -27,11 +27,11 @@ df = spark.read.option('multiLine', True)\
 - 실패한 내용은 내부 필드인 _corrupt_record 컬럼에 저장됨
 - df.show()는 _corrupt_record 외에 유효한 컬럼이 없기 때문에 에러 발생
 - 그래서 멀티라인 옵션을 True로 넣어야 한다. 아래와 같이 된다
-![멀티라인옵션적용]()
+![멀티라인옵션적용](../assets/multiLine.png)
 ### inferSchema
 ## pivot
 축을 바꾸는게 좋을거같아서 피벗 적용해보앗다
 ```
 df_pivot = df.groupBy('date').pivot('stat_name').agg(first('stat_value')).orderBy('date')
 ```
-![피벗적용]()
+![피벗적용](../assets/pivot.png)
