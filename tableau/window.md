@@ -6,9 +6,10 @@ WINDOW_* 함수는 Tableau에서만 사용할 수 있는 Table Calculation 함�
 ### 기본구조
 `계산된 필드 만들기`에서 진행
 ```
-WINDOW_FUNCTION(expression, [start, end])
+WINDOW_FUNCTION(컬럼, [start, end])
 ```
-
+- `start`: 계산 범위 시작 (생략 시 기본값은 전체 테이블)
+- `end`: 계산 범위 끝 (생략 시 기본값은 전체 테이블)
 # 함수 정의 및 설명
 
 | 함수 | 정의 | 설명 |
@@ -22,3 +23,26 @@ WINDOW_FUNCTION(expression, [start, end])
 | `WINDOW_STDEV()` | 표준편차 | 전체 표준편차 |
 | `WINDOW_COUNT()` | 갯수 | 전체 항목 수 |
 | `WINDOW_PERCENTILE(expr, percentile)` | 분위수 | 예: 0.9 → 90% 분위값 |
+
+### For example
+
+#### ex.1-1
+공격력의 최소값을 계산
+```
+WINDOW_MIN([공격력])
+```
+#### ex.1-2
+현재 행부터 앞으로 2행까지 평균
+```
+WINDOW_AVG([공격력], 0, 2)
+```
+
+### What it can do?
+
+#### ex.level.2
+스케일 정규화
+```
+(SUM([공격력]) - WINDOW_MIN(SUM([공격력]))) / (WINDOW_MAX(SUM([공격력])) - WINDOW_MIN(SUM([공격력])))
+
+(SUM([공/어센틱]) - WINDOW_MIN(SUM([공/어센틱]))) / (WINDOW_MAX(SUM([공/어센틱])) - WINDOW_MIN(SUM([공/어센틱])))
+```
