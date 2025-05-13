@@ -173,31 +173,6 @@ PUT movie_mapping/_doc/1
 ### D
 DELETE movie_mapping/_doc/1
 
-## URL 검색 방식
-GET /movie/_search?q=prdtYear:2018
-GET /movie/_search?q=movieNm:star
-
-## Request Body 검색 : 형태소 검색 필요하면 사용
-GET /movie/_search
-{
-    "query": {
-        "term": {"prdtYear": 2018}
-    }
-}
-# 가독성차이로 Request body 방식이 좋다
-
-## filter 검색 방식 : 전문검색이 아닌 수치검색(형태소검색 안해서 빠름)
-GET /movie/_search
-{
-    "query": {
-        "bool": {
-            "filter": {
-                "term": {"prdtYear": 2018}
-            }
-        }
-    }
-}
-
 ### from, size (페이지네이션:유사도 높은 1페이지 보여줌(구글검색 1페이지같은 느낌))
 GET /movie/_search
 {
