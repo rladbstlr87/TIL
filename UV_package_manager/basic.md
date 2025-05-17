@@ -29,6 +29,12 @@ pyproject.toml
 README.md
 uv.lock
 ```
+### 가상환경 활성화/비활성화
+~~확인중~~
+```
+source .venv/bin/activate
+deactivate
+```
 
 ### Package management
 ```
