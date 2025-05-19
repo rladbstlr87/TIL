@@ -1,11 +1,12 @@
 # Analyze
-
+```
 POST _analyze
 {
     "analyzer": "standard",
     "text": "Hello world!!!"
 }
-```
+
+# 결과
 {
   "tokens": [
     {
@@ -25,13 +26,14 @@ POST _analyze
   ]
 }
 ```
-
+```
 POST _analyze
 {
     "analyzer": "whitespace",
     "text": "Hello world!!!"
 }
-```
+
+# 결과
 {
   "tokens": [
     {
@@ -125,6 +127,9 @@ GET /article/_analyze
 },
 ```
 ### 형태소 분석 추가
+1. `"char_filter": ["html_strip"],`로 html태그 제외
+2. `"filter": ["lowercase", "asciifolding", "stemmer"]`로 소문자, 악센트 뺀 알파벳, 단어의 원형으로 변경
+3. 매핑 부분의 `"analyzer": "my_analyzer"`는 매핑에다가 사전작성한 "my_analyzer"를 적용하는 부분
 ```
 PUT /article
 {
@@ -162,6 +167,7 @@ POST /article/_analyze
 ```
 - stemmer가 하는 역할에 집중해보자
 ```
+# 결과
 {
   "tokens": [
     {
