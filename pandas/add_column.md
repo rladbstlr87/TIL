@@ -15,19 +15,13 @@ h.to_csv('data/all_pitcher_stats.csv', index=False)
 - `h['power']`라는 컬럼이 기존엔 없더라도 새로 생성됨
 
 ## merge
-데이터프레임과 데이터프레임을 병합
+- 두 개의 DataFrame을 공통 열 또는 인덱스를 기준으로 병합하는 함수
+- SQL의 JOIN과 유사하게 key 기준으로 행을 결합하여 새로운 DataFrame 생성
+### 기본구조
 ```
 merge_keys = ['선수명', '팀명', 'G']
 combined_df = pd.merge(df_basic, df_doru, on=merge_keys, how='left')
 ```
-### 기본구조
-
-```py
-
-```
-
-* 두 개의 DataFrame을 공통 열 또는 인덱스를 기준으로 병합하는 함수
-* SQL의 JOIN과 유사하게 key 기준으로 행을 결합하여 새로운 DataFrame 생성
 
 |파라미터|설명|
 |---|---|
