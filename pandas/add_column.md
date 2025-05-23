@@ -38,6 +38,8 @@ combined_df = pd.merge(df_basic, df_doru, on=merge_keys, how='left')
 |copy|병합 시 데이터 복사 여부|
 |indicator|병합 결과 원본 표시 열 추가 여부|
 |validate|병합 시 key의 일대일 관계 등 유효성 검증 방식 지정|
+- `on`파라미터 공통 key로 사용할 열들의 타입이 **동일 해야함 주의**
+  - 
 
 ### For example
 
