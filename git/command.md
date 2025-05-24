@@ -51,6 +51,8 @@ git remote remove {name}
 ```
 git push {remote_name (ex)origin} {branch_name (ex)master}
 ```
+**주의사항**
+`git pull`은 꼭 master 브랜치에서 하는게 좋은 것 같다. 별도의 브랜치에 위치한 상태에서 pull 하면 커밋 입력하라는 vim이 실행된다(귀찮)
 
 ---
 ## git branch
@@ -59,11 +61,11 @@ git push {remote_name (ex)origin} {branch_name (ex)master}
 - `git branch -d {branch_name}` : branch 삭제
 
 ## git switch
-- `git checkout {branch_name}` : branch_name으로 이동
-- `git switch {branch_name}` : branch_nanm으로 이동 (최신 명령어)
+- `git checkout {branch_name}` : branch_name으로 이동. 브랜치의 특정 커밋으로 이동 가능
+- `git switch {branch_name}` : branch_nanm으로 이동(최신 명령어). 브랜치의 최신 커밋으로 이동
 
 ## git merge
-- `git merge {target_branch_name}` : **현재 branch**로 target_branch_name을 가져와서 병합
+- `git merge {target_branch_name}` : **현재 branch**로 target_branch_name을 가져와서 병합. github에서 바뀐 코드 부분을 확인하고 merge 하는 방식이 현재 수준에서는 간편
 
 # 최종정리
 - git init > git clone > 작업 > 저장 > git add/commit/push > pull > 작업 > 저장 > add/commit/push > 상태보고싶을 때 git status > ...무한반복
