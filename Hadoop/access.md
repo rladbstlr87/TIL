@@ -32,4 +32,4 @@
 ```shell
 hadoop jar ~/hadoop-3.3.6/share/hadoop/tools/lib/hadoop-streaming-3.3.6.jar -input /input/text.txt -output /output/wordcount -mapper /home/ubuntu/damf2/hadoop/0.wordcount/mapper.py -reducer /home/ubuntu/damf2/hadoop/0.wordcount/reducer.py
 ```
-- hadoop jar ~/hadoop-3.3.6/share/hadoop/tools/lib/hadoop-streaming-3.3.6.jar -input 파일경로/파일명 -output 파일경로/폴더명 -mapper 매퍼코드 위치인데 ~/안먹음 -reducer 리듀서코드 위치인데 ~/안먹음
+- hadoop jar ~/hadoop-3.3.6/share/hadoop/tools/lib/hadoop-streaming-3.3.6.jar -input 파일경로/파일명 -output 파일경로/폴더명 -mapper
