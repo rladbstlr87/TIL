@@ -12,7 +12,7 @@ models.ForeignKey(to, on_delete=옵션, 여러옵션)
 | 파라미터           | 설명                                    |
 | -------------- | ------------------------------------- |
 | `to`           | 참조할 모델 (`Team`, `'app.ModelName'`, 등) |
-| `on_delete`    | 참조 대상이 삭제될 때의 동작                      |
+| `on_delete`    | 참조 대상이 삭제될 때의 동작 **필수** |
 | `related_name` | 역참조 시 사용할 이름 (기본값: `modelname_set`)   |
 | `null`         | DB에서 NULL 허용 여부                       |
 | `blank`        | 폼에서 빈 값 허용 여부                         |
