@@ -57,17 +57,17 @@ git push {remote_name (ex)origin} {branch_name (ex)master}
 - `git pull`은 꼭 master 브랜치에서 하는게 좋은 것 같다. 별도의 브랜치에 위치한 상태에서 pull 하면 커밋 입력하라는 vim이 실행된다(귀찮)
 
 ---
-## git branch
+## `git branch`
 - `git branch` : branch 목록 확인
 - `git branch {branch_name}` : branch 생성
 - `git branch -d {branch_name}` : branch 삭제
 
-## git switch
+## `git switch`
 - `git checkout {branch_name}` : branch_name으로 이동. 브랜치의 특정 커밋으로 이동 가능
 - `git switch {branch_name}` : branch_nanm으로 이동(최신 명령어). 브랜치의 최신 커밋으로 이동
 - `git switch -c {branch_name}` : branch_name **생성과 동시에** branch_name으로 이동
 
-## git merge
+## `git merge`
 - `git merge {target_branch_name}` : **현재 branch**로 target_branch_name을 가져와서 병합. github에서 바뀐 코드 부분을 확인하고 merge 하는 방식이 현재 수준에서는 간편
 ```
 git push origin feature/calendar
