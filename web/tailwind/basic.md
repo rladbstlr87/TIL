@@ -15,7 +15,7 @@ CSS파일이 거의 필요없이 유틸리티 클래스를 엄청 많이 모아�
 [핑거](https://fingr.io/) 라고 서버 구동 필요없이 웹 브라우저에서 HTML/Tailwind가 어떻게 보이는지 확인하면서 작성할 수 있는 에디터 서비스가 있다. 매번 고치고 저장하고 새로고침할 필요 없음
 
 ## 주요 클래스
-### MP
+### MP/bg
 ```html
 <div class="p-4 bg-blue-100">
   MP는 Margin padding의 약자이지 않을까
@@ -60,13 +60,100 @@ CSS파일이 거의 필요없이 유틸리티 클래스를 엄청 많이 모아�
 ```
 ![width](/assets/width.png)
 
-### boder
-### shadow
-### bg
-### text
+### boder/shadow/text
+```html
+<div class="m-4 border border-green-500 text-xl">
+  보더는 테두리
+</div>
+<div class="m-4 border border-green-200 text-m shadow-xl text-green-500">
+  쉐도우 고급짐
+</div>
+```
+![border](/assets/border.png)
+
 ### flex
-### grid
-### font
-### rounded
+보통 양 끝으로 간격 둘 때, 쓴다고 함
+```html
+<div class="flex justify-between">
+  <div class="m-4 border border-green-500 text-xl">
+    Tailwind
+  </div>
+  <div class="m-4 border border-green-200 text-m shadow-xl text-green-500">
+    Tailwind
+  </div>
+</div>
+<div class="flex justify-between">
+  <div class="m-4 border border-green-500 text-xl">
+    Tailwind
+  </div>
+  <div class="m-4 border border-green-200 text-m shadow-xl text-green-500">
+    Tailwind
+  </div>
+</div>
+<div class="flex justify-between items-center h-screen">
+  <div class="p-4 border text-xl text-center">
+    Tailwind
+  </div>
+  <div class="p-4 border text-m shadow-xl text-green-500">
+    Tailwind
+  </div>
+</div>
+```
+![flex](/assets/flex.png)
+```html
+<div class="m-4 flex justify-center ">
+  <div class="p-4 border text-xl text-center">
+    Tailwind
+  </div>
+  <div class="p-4 border rounded-xl text-m shadow-xl text-green-500">
+    Tailwind
+  </div>
+</div>
+<div class="m-4 flex gap-4 justify-center ">
+  <div class="p-4 border text-xl text-center">
+    Tailwind
+  </div>
+  <div class="p-4 border rounded-xl text-m shadow-xl text-green-500">
+    Tailwind
+  </div>
+</div>
+```
+![flex](/assets/flex-rounded.png)
+### grid/font
+```html
+<div class="grid grid-cols-3 gap-3 text-center font-black">
+  <div class="p-4 border">
+    Tailwind
+  </div>
+  <div class="bg-green-500 text-white p-4 border rounded-full">
+    Tailwind
+  </div>
+  <div class="p-4 border">
+    Tailwind
+  </div>
+  <div class="p-4 border">
+    Tailwind
+  </div>
+  <div class="bg-green-900 text-white p-4 border rounded-tr-xl">
+    Tailwind
+  </div>
+  <div class="p-4 border">
+    Tailwind
+  </div>
+  <div class="p-4 border">
+    Tailwind
+  </div>
+  <div class="p-4 border">
+    Tailwind
+  </div>
+  <div class="p-4 border">
+    Tailwind
+  </div>
+  <div class="p-4 border">
+    Tailwind
+  </div>
+</div>
+```
+![grid](/assets/grid.png)
 ### position
 ### display
