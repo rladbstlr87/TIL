@@ -156,4 +156,44 @@ CSS파일이 거의 필요없이 유틸리티 클래스를 엄청 많이 모아�
 ```
 ![grid](/assets/grid.png)
 ### position
+fixed는 상위요소의 relative에 영향을 받지 않는다는 점이 absolute와 차이가 있다. 나머지 역할은 같음
+```html
+<div class="grid grid-cols-3 gap-3 text-center font-black">
+  <div class="p-4 border">
+    Tailwind
+  </div>
+  <div class="bg-green-500 text-white p-4 border rounded-full absolute bottom-0 right-0">
+    Tailwind
+  </div>
+...
+```
+![absolute](/assets/absolute.png)
+
+relative
+```html
+<div class="grid grid-cols-3 gap-3 text-center font-black relative">
+  <div class="p-4 border">
+    Tailwind
+  </div>
+  <div class="bg-green-500 text-white p-4 border rounded-full absolute bottom-0 right-0">
+    Tailwind
+  </div>
+...
+```
+![relative](/assets/relative.png)
+
 ### display
+inline
+```html
+<div class="gap-3 text-center font-black">
+  <div class="p-4 border">
+    Tailwind
+  </div>
+</div>
+<div class="gap-3 text-center font-black">
+  <div class="p-4 border inline">
+    Tailwind
+  </div>
+</div>
+```
+![inline](/assets/inline.png)
