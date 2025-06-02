@@ -77,7 +77,7 @@ git merge feature/calendar
 
 ## `git remote update`
 - 다른 컴터에서 작업하고 있던 브랜치를 또 다른 컴퓨터에서 끌어오려면 우선 remote update로 어떤 브랜치들이 있는지 인식시켜줘야 함
-- 그 후에 pull 하면 땡겨진다
+- 그 후에 switch 하면 브랜치 갈아타짐
 
 # 최종정리
 - git init or git clone > 작업 > 저장 > git add/commit/push origin branch > git switch master > pull master > git merge > 작업 > 저장 > add/commit/push > 상태보고싶을 때 git status > ...무한반복
