@@ -36,3 +36,21 @@ class Player(models.Model):
     name = models.CharField(max_length=50)
     team = models.ForeignKey(Team, on_delete=models.CASCADE)
 ```
+
+## `to_field=`
+- 참조하는 모델의 pk 필드(보통 id가 되겠다)를 자동으로 참조하지 않고 to_field로 지정
+- 참조 대상 필드에는 unique=True가 있어야 to_field 사용 가능함
+- to_field로 지정된 필드가 unique하지 않으면 오류 발생
+
+### 기본구조
+```py
+모델명 = models.ForeignKey(TargetModel, on_delete=..., to_field=...)
+```
+### For examples
+#### ex.1-1
+Pitcher 모델의 player_id 필드를 직접 참조
+```py
+player = models.ForeignKey(Pitcher, on_delete=models.CASCADE, to_field='player_id')
+```
+- Pitcher 모델의 PK가 player_id가 아닐 경우 (예: 별도의 auto id 필드가 있을 경우)
+- player_id는 일반 필드이기 때문에, 명시적으로 to_field='player_id' 지정해야 참조 가능
