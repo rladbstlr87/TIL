@@ -28,7 +28,6 @@ print(getattr(user, 'username'))  # 'alice'
 ```
 
 #### ex.1-2
-
 ```py
 class Article:
     title = 'Django Tips'
