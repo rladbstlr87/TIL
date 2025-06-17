@@ -60,10 +60,104 @@ print(value)  # 'alice@example.com'
 ```
 
 #### ex.level.3
-속성으로 조건을 만들수 있음
+속성으로 조건을 만들수 있음. 야구선수 중 투수가 가질만한 스탯으로 투수인지 타자인지 구별. 그에 따라 각각의 투타 스타일에 설명을 부여, 툴팁에 사용 가능
 ```py
+# apps/templatetags/custom_filters.py
 
+@register.filter
+def style_description(obj):
+    style_value = str(getattr(obj, 'style', ''))
+    is_pitcher = hasattr(obj, 'ERA') or hasattr(obj, 'IP')  # 투수만 가질 만한 필드
+
+    if is_pitcher:
+        pitcher_styles = {
+            '0': '구속형',
+            '1': '제구형',
+            '2': '체력형',
+            '3': '노멀형',
+        }
+        return pitcher_styles.get(style_value, '알 수 없는 유형')
+    else:
+        hitter_styles = {
+            '0': '파워형',
+            '1': '스피드형',
+            '2': '타격형',
+            '3': '선구안형',
+            '4': '노멀형',
+        }
+        return hitter_styles.get(style_value, '알 수 없는 유형')
 ```
 ```html
+{% load custom_filters %}
 
+{{ lineup.hitter|style_description }}
+{{ lineup.pitcher|style_description }}
+```
+
+## 2. hasattr
+### 기본구조
+
+```py
+hasattr(object, name)
+```
+
+- 객체에 특정 이름의 속성이 존재하는지 여부를 불리언으로 반환하는 내장 함수
+- 객체가 지정한 이름의 속성을 가지고 있으면 `True`, 없으면 `False` 반환
+
+| 파라미터     | 설명                  |
+| -------- | ------------------- |
+| `object` | 속성 존재 여부를 검사할 대상 객체 |
+| `name`   | 문자열 형태의 속성 이름       |
+
+### For example
+
+#### ex.2-1
+
+```py
+class User:
+    username = 'alice'
+
+user = User()
+print(hasattr(user, 'username'))  # True
+```
+
+#### ex.2-2
+
+```py
+class Product:
+    price = 100
+
+product = Product()
+print(hasattr(product, 'stock'))  # False
+```
+
+#### ex.2-3
+
+```py
+class Dummy:
+    pass
+
+d = Dummy()
+print(hasattr(d, 'anything'))  # False
+```
+
+### What it can do?
+#### ex.level.2
+동적으로 속성 존재 여부 확인 후 조건 처리 가능
+```py
+field_name = 'email'
+if hasattr(user, field_name):
+    print(getattr(user, field_name))
+else:
+    print('속성 없음')
+```
+
+#### ex.level.3
+Django 모델 인스턴스 필드 존재 여부 체크 후 안전하게 값 접근 가능
+```py
+for field in ['username', 'email', 'is_active']:
+    if hasattr(user, field):
+        print(f"{field}: {getattr(user, field)}")
+    else:
+        print(f"{field} 속성 없음")
 ```
