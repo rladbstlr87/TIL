@@ -1,5 +1,7 @@
 # Attribute 접근 (내장함수 종류)
+attr은 객체의 속성 이름을 문자열로 콕 찍어서 지정한다고 생각하면 된다
 ## 1. getattr
+그럼 get은 그 attr을 가져온다 정도가 되겠다
 - 객체의 속성값을 문자열 이름으로 접근할 수 있게 해주는 내장 함수
 - Django ORM 모델은 DB 레코드 하나를 객체로 표한하고 이 모델 인스턴스의 **필드(field)**가 바로 **속성(attribute)**이 됨. 야구선수 스탯을 저장한 DB에서 ERA, IP 이런 것들이 속성이 되는 것
 
@@ -95,8 +97,8 @@ def style_description(obj):
 ```
 
 ## 2. hasattr
+has는 attr이 가지고 있는가? 존재 여부를 확인하는 의미다
 ### 기본구조
-
 ```py
 hasattr(object, name)
 ```
@@ -110,7 +112,6 @@ hasattr(object, name)
 | `name`   | 문자열 형태의 속성 이름       |
 
 ### For example
-
 #### ex.2-1
 
 ```py
@@ -122,7 +123,7 @@ print(hasattr(user, 'username'))  # True
 ```
 
 #### ex.2-2
-
+없어서 false
 ```py
 class Product:
     price = 100
@@ -130,9 +131,7 @@ class Product:
 product = Product()
 print(hasattr(product, 'stock'))  # False
 ```
-
-#### ex.2-3
-
+더미에 아무것도 없어서 false
 ```py
 class Dummy:
     pass
