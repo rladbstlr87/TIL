@@ -20,7 +20,7 @@ ALLOWED_HOSTS = [
     - mac : `chmod 600 key/path/key.pem`
     ```bash
     # ssh -i <your/key/path/key.pem> ubuntu@public_IPv4_address
-    ssh -i ~/Desktop/key/my_key.pem ubuntu@123.123.123.123
+    ssh -i ~/my_key.pem ubuntu@123.123.123.123
     ```
 
 1. 인바운드 설정
@@ -64,6 +64,7 @@ touch .config/uwsgi/{프로젝트이름}.ini
 ```
 
 ### daemon
+백그라운드에서 상시 서버 돌려줌
 0. 파일 생성 및 수정
 ```bash
 touch .config/uwsgi/uwsgi.service
