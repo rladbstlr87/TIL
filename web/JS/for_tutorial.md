@@ -47,8 +47,28 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 ```
 
-## 고유 키 생성
+## 로컬스토리지 방문 키 처리
 현재 페이지의 경로(pathname)를 기반으로 로컬스토리지에서 사용할 고유 키를 생성(ex. `/about` 페이지라면 `visited_/about`이라는 키가 생성됨)
+- `visited_`는 로컬스토리지에 저장될 방문 여부 확인용 키의 접두사
 ```js
 const pageKey = `visited_${window.location.pathname}`;
 ```
+페이지 별로 고려해야 한다면 if와 정규식을 사용해서 분기처리해보자
+```js
+    const path = window.location.pathname;
+    let pageKey = '';
+
+    if (/^\/cal\/calendar\/\d+\/?$/.test(path)) {
+        // 모든 숫자 경기 페이지는 공통 키 사용
+        pageKey = 'visited_cal_calendar';
+    } else if (/^\/cal\/[^\/]+\/stadium_info$/.test(path)) {
+        // 경기장 정보 페이지는 경기장 이름 달라도 공통 키 사용
+        pageKey = 'visited_stadium_info';
+    } else {
+        // 그 외 경로는 고유하게 처리
+        pageKey = `visited_${path}`;
+    }
+```
+### For examples
+#### ex.1-1
+사용자 방문 여부를 판단해 초기 오버레이, 안내, 튜토리얼 등을 1회만 보여주기 위한 용도로 경기 페이지 방문 기록 저장
