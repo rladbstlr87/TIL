@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 ```
 
 ## DOMContentLoaded
-HTML 문서가 완전히 파싱되고 나면(<script>가 <head>나 <body> 어디에 있든 관계없이) 이벤트 리스너 내부의 콜백 함수`(()=>{})`가 실행
+HTML 문서가 완전히 파싱되고 나면(`<script>`가 `<head>`나 `<body>` 어디에 있든 관계없이) 이벤트 리스너 내부의 콜백 함수`(()=>{})`가 실행
 ```js
 document.addEventListener('DOMContentLoaded', () => {
     // 여기에 들어간 함수를 실행
