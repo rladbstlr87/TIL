@@ -47,9 +47,17 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 ```
 
-## 로컬스토리지 방문 키 처리
+## 로컬 스토리지 방문 키 처리
 현재 페이지의 경로(pathname)를 기반으로 로컬스토리지에서 사용할 고유 키를 생성(ex. `/about` 페이지라면 `visited_/about`이라는 키가 생성됨)
-- `visited_`는 로컬스토리지에 저장될 방문 여부 확인용 키의 접두사
+- `visited_`는 로컬 스토리지에 저장될 방문 여부 확인용 키의 접두사
+- 로컬 스토리지에 저장되는건 세션 스토리지에 저장되는 것과 쿠키와도 다르다
+| 항목 | localStorage | sessionStorage | cookie |
+|---|---|---|---|
+| 지속 시간 | 삭제 전까지 유지 | 탭/창을 닫을 때까지 | 설정된 만료 시간까지 |
+| 저장 용량 | 약 5MB | 약 5MB | 4KB 이하 |
+| 서버 전송 | 안됨 | 안됨 | 매 요청마다 서버로 자동 전송 |
+| 접근 방식 | JS로만 접근 (`localStorage.getItem`) | JS로만 접근 (`sessionStorage.getItem`) | JS 또는 서버에서 접근 가능 |
+| 보안 관련 | JS에서 접근 가능 (XSS에 취약) | JS에서 접근 가능 (XSS에 취약) | `HttpOnly` 설정 가능 (보안 강함) |
 ```js
 const pageKey = `visited_${window.location.pathname}`;
 ```
@@ -72,3 +80,18 @@ const pageKey = `visited_${window.location.pathname}`;
 ### For examples
 #### ex.1-1
 사용자 방문 여부를 판단해 초기 오버레이, 안내, 튜토리얼 등을 1회만 보여주기 위한 용도로 경기 페이지 방문 기록 저장
+```js
+document.addEventListener('DOMContentLoaded', () => {
+    const pageKey = `visited_${window.location.pathname}`;
+    const overlay = document.getElementById('introOverlay');
+
+    if (!localStorage.getItem(pageKey)) {
+        overlay.classList.remove('hidden');
+
+        overlay.addEventListener('click', () => {
+            overlay.classList.add('hidden');
+            localStorage.setItem(pageKey, 'true');
+        });
+    }
+});
+```
