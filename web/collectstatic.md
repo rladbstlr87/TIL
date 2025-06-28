@@ -29,5 +29,6 @@ OSError: No such file or directory - STATICFILES_DIRS나 STATIC_ROOT 경로가 �
 정상 실행했는데도 브라우저에 반영되지 않는 경우는 웹 서버 설정 문제나 캐시 문제일 수 있음
 
 ## 기타
-
-staticfiles 디렉토리는 보통 .gitignore에 추가해서 Git으로 버전 관리하지 않음
+- static 디렉토리는 소스코드와 함께 버전관리 함
+- staticfiles 디렉토리는 보통 .gitignore에 추가해서 Git으로 버전 관리하지 않음
+  - staticfiles는 운영서버에서만 사용되고 변경 십마다 다시 생성 가능하기 때문
