@@ -31,4 +31,10 @@ OSError: No such file or directory - STATICFILES_DIRS나 STATIC_ROOT 경로가 �
 ## 기타
 - static 디렉토리는 소스코드와 함께 버전관리 함
 - staticfiles 디렉토리는 보통 .gitignore에 추가해서 Git으로 버전 관리하지 않음
-  - staticfiles는 운영서버에서만 사용되고 변경 십마다 다시 생성 가능하기 때문
+  - staticfiles는 운영서버에서만 사용되고 명령어에 의한 산출믈이기 때문
+  ```
+  # If your build process includes running collectstatic, then you probably don't need or want to include staticfiles/
+  # in your Git repository. Update and uncomment the following line accordingly.
+  # <django-project-name>/staticfiles/
+  ```
+  라고 gitignore에도 나와있음
