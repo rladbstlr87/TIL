@@ -1,25 +1,13 @@
-* 카테고리: DOM, 크롤링
-
----
-
-### DOM 기본 구조
-
-* 정의: DOM(Document Object Model)은 브라우저가 HTML 문서를 해석해 구성한 트리 구조의 객체 모델이다.
-* 설명:
-
-  * JS는 DOM을 통해 페이지 구조, 텍스트, 스타일 등을 동적으로 조작할 수 있음
-* 예시:
-
-  ```js
-  const title = document.querySelector('h1');
-  title.textContent = '반갑습니다!';
-  title.style.color = 'red';
-  ```
-
----
+## DOM(Document Object Model)
+- 브라우저가 HTML 문서를 해석해 구성한 트리 구조의 객체 모델
+- JS는 DOM을 통해 페이지 구조, 텍스트, 스타일 등을 동적으로 조작할 수 있음
+ ```js
+ const title = document.querySelector('h1');
+ title.textContent = '반갑습니다!';
+ title.style.color = 'red';
+ ```
 
 ### DOM 트리 예시
-
 * 기본 구조:
 
   ```html
