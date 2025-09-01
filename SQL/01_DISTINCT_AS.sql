@@ -1,5 +1,5 @@
 -- 중복 데이터 제거하기
--- `DISTINCT`는 선택한 **모든 컬럼 조합**으로 중복 제거
+-- `DISTINCT`는 선택한 모든 컬럼 조합으로 중복 제거
 SELECT DISTINCT game_id, stadium_id
 FROM cal_lineup;
 
