@@ -1,5 +1,6 @@
 -- LIKE : 와일드카드로 만든 패턴과 일치하는 데이터 검색
 
+-- LIKE와 % 사용법
 -- '김%': '김'으로 시작하는 모든 문자열
 -- '%김': '김'으로 끝나는 모든 문자열
 -- '%김%': '김'이 포함된 모든 문자열
@@ -21,7 +22,6 @@ WHERE player_name LIKE '김__';
 
 
 -- NOT LIKE : 지정된 패턴과 일치하지 않는 데이터만 조회
-
 -- lineups 테이블에서 '잠실'이 아닌 다른 모든 경기장 정보 조회
 SELECT DISTINCT stadium FROM lineups
 WHERE stadium NOT LIKE '잠%';
@@ -33,7 +33,9 @@ WHERE stadium NOT LIKE '잠%';
 
 -- 이런 경우 비교 연산자를 사용하면 더 빠른 검색이 가능
 
--- lineups 테이블에서 '잠'으로 시작하는 경기장(stadium) 조회 (비교 연산자 ver)
--- '잠'으로 시작하고 '자'보다 작은 모든 값을 찾아냄
+-- lineups 테이블에서 '잠'으로 시작하는 경기장(stadium) 조회
+-- >= '잠': '잠'을 포함하여 '잠'으로 시작하는 모든 값
+-- < '자': '자' 이전의 모든 값 (다음 글자인 '자'는 포함하지 않음)
+-- 결과적으로 '잠'으로 시작하는 모든 값을 효율적으로 검색
 SELECT * FROM lineups
 WHERE stadium >= '잠' AND stadium < '자';
