@@ -53,16 +53,16 @@
 
 ```sql
 -- 표준 평균
-SELECT AVG(total_bill) FROM sales;
+SELECT AVG(H) FROM hitters_records;
 
 -- 등식 형태
-SELECT SUM(total_bill)::numeric / NULLIF(COUNT(total_bill), 0) FROM sales;
+SELECT SUM(H)::numeric / NULLIF(COUNT(H), 0) FROM hitters_records;
 
 -- 정수 나눗셈 방지용 캐스팅
-SELECT SUM(total_bill)::numeric / NULLIF(COUNT(total_bill), 0)::numeric FROM sales;
+SELECT SUM(H)::numeric / NULLIF(COUNT(H), 0)::numeric FROM hitters_records;
 
 -- NULL을 0으로 간주한 평균 해석 주의
-SELECT SUM(COALESCE(total_bill, 0))::numeric / NULLIF(COUNT(*), 0) FROM sales;
+SELECT SUM(COALESCE(H, 0))::numeric / NULLIF(COUNT(*), 0) FROM hitters_records;
 
 ```
 
@@ -70,12 +70,12 @@ SELECT SUM(COALESCE(total_bill, 0))::numeric / NULLIF(COUNT(*), 0) FROM sales;
 
 ```sql
 -- 표준 평균
-SELECT AVG(total_bill) FROM sales;
+SELECT AVG(H) FROM hitters_records;
 
 -- 등식 형태
-SELECT SUM(total_bill) / NULLIF(COUNT(total_bill), 0) FROM sales;
+SELECT SUM(H) / NULLIF(COUNT(H), 0) FROM hitters_records;
 
 -- NULL을 0으로 간주한 평균 해석 주의
-SELECT SUM(COALESCE(total_bill, 0)) / NULLIF(COUNT(*), 0) FROM sales;
+SELECT SUM(COALESCE(H, 0)) / NULLIF(COUNT(*), 0) FROM hitters_records;
 
 ```
