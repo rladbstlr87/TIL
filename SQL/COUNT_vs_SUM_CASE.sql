@@ -1,4 +1,3 @@
--- 실습을 위한 가상 테이블 생성
 CREATE TABLE orders (
     order_id INT,
     category VARCHAR(50),
