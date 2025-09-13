@@ -28,9 +28,20 @@ SELECT
     COUNT(DECODE(team, 'HH', 1)) AS "한화 선수 수"
 FROM all_hitter_stats;
 
+-- COUNT(DECODE(team, 'HH', 1)) 설명
+-- 1. DECODE는 team이 'HH'이면 1, 아니면 NULL을 반환
+-- 2. COUNT 함수는 NULL이 아닌 값(여기서는 1)의 개수만 계산
+-- => 결과적으로 'HH' 팀의 선수 수를 세는 것과 동일
+
 -- SUM과 함께 사용하여 조건부 합계 계산
 -- 'LG' 팀의 총 홈런과 'HH' 팀의 총 홈런 합계
 SELECT
     SUM(DECODE(team, 'LG', HR, 0)) AS "LG팀 총 홈런",
     SUM(DECODE(team, 'HH', HR, 0)) AS "한화팀 총 홈런"
 FROM all_hitter_stats;
+
+-- SUM(DECODE(team, 'LG', HR, 0)) 설명 (조건부 합계)
+-- 1. DECODE는 team이 'LG'이면 HR(홈런 수), 아니면 0을 반환
+-- 2. SUM 함수는 이 결과들을 모두 더함
+-- => 'LG'팀 소속 선수의 홈런만 합산하고, 나머지는 0을 더하므로 'LG'팀의 총 홈런이 계산됨
+
