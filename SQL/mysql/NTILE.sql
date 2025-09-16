@@ -15,3 +15,30 @@ SELECT
     purchase_amount,
     NTILE(4) OVER (ORDER BY purchase_amount DESC) AS purchase_group
 FROM user_purchases;
+
+-- KBO 데이터 예시: 전체 타자를 타율(AVG) 기준으로 4개 그룹으로 분할
+SELECT
+    player_name,
+    team,
+    AVG,
+    NTILE(4) OVER (ORDER BY AVG DESC) AS avg_group
+FROM all_hitter_stats;
+
+-- 타율(AVG)을 기준으로 전체 타자를 10분위로 나누고, 상위 10%(1분위)에 속하는 선수들을 조회
+WITH player_deciles AS (
+    SELECT
+        player_name,
+        team,
+        AVG,
+        NTILE(10) OVER (ORDER BY AVG DESC) AS decile
+    FROM
+        all_hitter_stats
+)
+SELECT
+    player_name,
+    team,
+    AVG
+FROM
+    player_deciles
+WHERE
+    decile = 1;
