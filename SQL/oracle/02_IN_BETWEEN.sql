@@ -1,6 +1,6 @@
 -- IN : 컬럼 안에 특정 값이 있는지 확인
 -- 여러개중 하나라도 일치하는 값이 있으면 가져옴
--- Oracle에서는 LIMIT 대신 ROWNUM 또는 FETCH FIRST N ROWS ONLY를 사용
+-- LIMIT 키워드를 지원하지 않으며, ROWNUM 또는 FETCH FIRST N ROWS ONLY를 사용
 SELECT *
 FROM cal_lineup
 WHERE stadium_id IN ('잠실', '고척') -- 괄호는 필수고 숫자형이면 따옴표 없어도 됨

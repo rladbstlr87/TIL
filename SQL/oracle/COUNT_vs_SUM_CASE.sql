@@ -17,8 +17,6 @@ INSERT INTO orders (order_id, category, amount, status) VALUES (5, '전자제품
 INSERT INTO orders (order_id, category, amount, status) VALUES (6, '의류', 75.00, '환불');
 INSERT INTO orders (order_id, category, amount, status) VALUES (7, '도서', 15.00, '정상');
 
--- 나머지 SELECT 문은 표준 SQL이므로 Oracle에서도 동일하게 작동합니다.
-
 -- 사용자의 요청: "전체 주문 중 '전자제품' 카테고리 주문은 몇 건인가요?"
 -- COUNT: 조건에 맞는 건수(개수) 계산
 SELECT COUNT(CASE WHEN category = '전자제품' THEN 1 END)
