@@ -1,5 +1,7 @@
--- 전환율 개념을 응용한 타자/투수 유형 퍼널 분석 (MySQL)
--- 파이썬 코드로 계산된 정규화 스탯(power, contact, speed, batting_eye 등)을 기준으로 재작성
+-- MySQL에서는 SELECT 절에서 지정한 별칭(hitter_type, pitcher_type)을
+-- GROUP BY와 ORDER BY 절에서 바로 사용 가능
+
+-- 전환율 개념을 응용한 타자/투수 유형 퍼널 분석
 
 -- 타자 유형 퍼널 분석
 -- -- 규정 타석(PA)을 채운 타자를 대상으로, 정규화된 능력치에 따라 순차적으로 유형을 분류
