@@ -46,16 +46,16 @@ SELECT 'dataaaaaa' REGEXP 'data{2,5}'; -- false
 
 -- 그룹 (Grouping)
 -- (): 표현식 그룹화
-SELECT 'datarian' REGEXP 'data(rian)';
-SELECT 'data' REGEXP 'data(rian)'; -- false
+SELECT 'totheballpark' REGEXP 'tothe(ballpark)';
+SELECT 'data' REGEXP 'tothe(ballpark)'; -- false
 
 -- 문자 클래스 (Character Classes)
 -- [abc]: 대괄호 안의 문자 중 하나
-SELECT 'datar' REGEXP 'data[rian]';
-SELECT 'datax' REGEXP 'data[rian]'; -- false
+SELECT 'totheballp' REGEXP 'totheball[park]';
+SELECT 'totheballx' REGEXP 'totheball[park]'; -- false
 -- [^abc]: 대괄호 안의 문자를 제외
-SELECT 'datat' REGEXP 'data[^rian]';
-SELECT 'datar' REGEXP 'data[^rian]'; -- false
+SELECT 'totheballx' REGEXP 'totheball[^park]';
+SELECT 'totheballp' REGEXP 'totheball[^park]'; -- false
 
 -- 이스케이프 시퀀스 (Character Class Escapes)
 -- \d: 숫자 ([0-9]와 동일)
