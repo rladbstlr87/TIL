@@ -26,3 +26,13 @@
 - "dependencies": 앱 실행에 필요한 라이브러리 (예: react, react-dom)
 - "devDependencies": 개발 과정에서만 필요한 라이브러리 (예: 테스팅 도구, 빌드 도구)
 - "scripts": `npm start`, `npm build` 등 자주 사용하는 명령어를 정의
+
+## 핵심 개념
+
+### 컴포넌트 생명주기 (Lifecycle)
+- 컴포넌트가 생성되고, 사용되고, 소멸되기까지의 과정
+- 마운팅 (Mounting): 컴포넌트가 생성되어 DOM에 삽입될 때
+- 업데이트 (Updating): props나 state가 변경되어 리렌더링될 때
+- 언마운팅 (Unmounting): 컴포넌트가 DOM에서 제거될 때
+- `useEffect` Hook으로 각 생명주기 시점에 원하는 로직을 실행
+  - 예시: `useEffect(() => { /* 마운팅 시 실행 */ return () => { /* 언마운팅 시 실행 */ }; }, []);`
