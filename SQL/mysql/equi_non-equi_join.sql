@@ -4,7 +4,19 @@
 -- NULL 값 처리 주의사항
 -- SQL에서 NULL은 '알 수 없음'을 의미하며, 어떤 값과도 같다고 간주되지 않음
 -- 따라서 NULL = NULL 또한 참이 아닌 거짓(UNKNOWN)으로 평가됨
--- NULL 값을 비교할 때는 'IS NULL' 또는 'IS NOT NULL'을 사용해야 함
+-- NULL 값을 비교할 때는 'IS NULL' 또는 'IS NOT NULL'을 사용
+
+-- 암시적 조인 (Implicit Join) 예시
+-- FROM 절에 여러 테이블을 나열하고 WHERE 절에서 조인 조건을 명시하는 방식
+-- 명시적 JOIN 키워드를 사용하는 방식(INNER JOIN)과 기능적으로 동일
+SELECT
+    emp.ename,
+    dept.dname
+FROM
+    emp,
+    dept
+WHERE
+    emp.deptno = dept.deptno;
 
 -- all_hitter_stats와 hitters_records 테이블을 player_id로 조인
 -- 3안타 이상 친 'LG' 팀 선수의 이름, 팀, 경기 날짜, 안타 수 조회
