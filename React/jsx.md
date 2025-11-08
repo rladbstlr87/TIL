@@ -51,3 +51,53 @@
     return <div style={{ color: 'red', marginTop: '10px' }}>Another Div</div>;
   }
   ```
+
+## 단일 루트 요소 (Single Root Element)
+
+- 컴포넌트의 `return` 문은 반드시 하나의 최상위 태그로 모든 요소를 감싸야 함
+- 이유: `return`은 하나의 값만 반환할 수 있으며, 여러 개의 JSX 태그는 여러 값을 반환하는 것과 같기 때문
+- 해결책:
+  - `<div>`와 같은 부모 태그로 감싸기
+  - 불필요한 `<div>` 생성을 피하고 싶을 때 `<React.Fragment>` 또는 축약형 `<>` 사용
+- 예시:
+  ```jsx
+  // 잘못된 예시 - 태그 2개가 병렬로 반환됨
+  function WrongReturn() {
+    return (
+      <h1>제목</h1>
+      <p>내용</p>
+    );
+  }
+
+  // 올바른 예시 - div로 감싸기
+  function CorrectReturnDiv() {
+    return (
+      <div>
+        <h1>제목</h1>
+        <p>내용</p>
+      </div>
+    );
+  }
+
+  // 올바른 예시 - div 안에 div (중첩 가능)
+  function CorrectReturnNestedDiv() {
+    return (
+      <div>
+        <div>
+          <h1>제목</h1>
+          <p>내용</p>
+        </div>
+      </div>
+    );
+  }
+
+  // 올바른 예시 - Fragment로 감싸기
+  function CorrectReturnFragment() {
+    return (
+      <>
+        <h1>제목</h1>
+        <p>내용</p>
+      </>
+    );
+  }
+  ```
