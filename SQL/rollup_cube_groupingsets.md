@@ -20,7 +20,7 @@ GROUP BY team, style WITH ROLLUP;
 ```
 
 ### 결과
-(team, style) -> (team) -> () 순서로 집계
+`(team, style)` -> `(team)` -> `()` 순서로 집계
 | team      | style   | total_hr |
 | :-------- | :------ | :------- |
 | Lions     | Power   | 50       |
@@ -51,7 +51,7 @@ GROUP BY team, style WITH CUBE;
 ```
 
 ### 결과
-(team, style), (team), (style), () 모든 조합에 대한 홈런 합계를 계산
+`(team, style)`, `(team)`, `(style)`, `()` 모든 조합에 대한 홈런 합계를 계산
 | team    | style       | total_hr |
 | :------ | :---------- | :------- |
 | Lions   | Power       | 50       |
