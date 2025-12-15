@@ -1,4 +1,4 @@
-# 03 JSX 기초
+# JSX 기초
 - JSX는 JS 안에서 HTML처럼 UI를 적을 수 있게 돕는 문법
 - className으로 CSS 클래스를 지정하고 style에는 JS 객체를 넣음
 - 중괄호{}로 JS 값이나 표현식을 바로 바인딩

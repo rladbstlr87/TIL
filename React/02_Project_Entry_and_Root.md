@@ -1,4 +1,4 @@
-# 02 진입점과 DOM 주입
+# 진입점과 DOM 주입
 - index.html의 root div가 React가 붙는 자리
 - src/main.tsx가 createRoot로 root에 App을 렌더링
 - StrictMode로 의도치 않은 부작용을 조기에 찾음
